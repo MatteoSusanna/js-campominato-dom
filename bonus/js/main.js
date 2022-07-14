@@ -63,7 +63,7 @@ document.getElementById('play').addEventListener('click',
                             //se è divisibile per 6 è una bomba
                         if(perso == false){
                             
-                            if (casual % 6 == 0){
+                            if (casual % 5 == 0){
                                 perso = true;
                                 this.classList.add('bomb');
                                 alert('HAI PERSO il tuo punteggio è di ' + attiva + ' punti');
@@ -97,7 +97,7 @@ document.getElementById('play').addEventListener('click',
                             //se è divisibile per 6 è una bomba
                         if(perso == false){
                             
-                            if (casual % 6 == 0){
+                            if (casual % 3 == 0){
                                 perso = true;
                                 this.classList.add('bomb');
                                 alert('HAI PERSO il tuo punteggio è di ' + attiva + ' punti');
@@ -107,7 +107,7 @@ document.getElementById('play').addEventListener('click',
                                 }
                                 this.classList.add('normal');
                                 attiva++;
-                                hDom.innerHTML = `<h3>IL PUNTEGGIO E' ${attiva}</h3>`;
+                                hDom.innerHTML = `<h3>IL PUNTEGGIO E' ${attiva}</h3>`; 
                             }  
                         }    
     
@@ -156,5 +156,7 @@ function griglia(numeroInternoAlBox){
     numeroInterno.classList.add('numeroInterno');
     numeroInterno.append(numeroInternoAlBox);
 
+
+    element.append(numeroInterno)
     return element;
 }

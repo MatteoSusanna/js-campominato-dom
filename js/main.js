@@ -40,6 +40,9 @@ document.getElementById('play').addEventListener('click',
                                 this.classList.add('normal');
                                 attiva++;
                                 hDom.innerHTML = `<h3>IL PUNTEGGIO E' ${attiva}</h3>`;
+                                if(attiva == 84){
+                                    risultatoDom.innerHTML = `<h1>HAI VINTO!!!!!!</h1>`
+                                }
                             }  
 
                         }    
