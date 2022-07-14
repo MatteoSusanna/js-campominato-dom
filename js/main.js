@@ -1,5 +1,6 @@
 const containerDom = document.getElementById('container');
 const hDom = document.getElementById('punteggio');
+let risultatoDom = document.getElementById('risultato');
 let perso = false;
 
 let myArray = [];
@@ -7,13 +8,13 @@ let myArray = [];
 document.getElementById('play').addEventListener('click',
         function(){
 
-            containerDom.innerHTML = '';
-                        
-            let attiva = 0;
-            
             //reset
+            containerDom.innerHTML = '';
+            risultatoDom.innerHTML = ''
+            let attiva = 0;
             perso = false;
             myArray = [];
+            
 
                 for (let i = 1; i <= 100; i++){
 
@@ -29,10 +30,9 @@ document.getElementById('play').addEventListener('click',
                         if(perso == false){
                             
                             if (casual % 6 == 0){
-
                                 perso = true;
                                 this.classList.add('bomb');
-                                alert('HAI PERSO il tuo punteggio è di ' + attiva + ' punti');
+                                risultatoDom.innerHTML = `<h2>HAI PERSO il tuo punteggio è di ${attiva}</h2>`;
                             }else {
                                 if(this.classList.contains('normal')){
                                     attiva--;
