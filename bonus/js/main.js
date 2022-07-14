@@ -156,7 +156,5 @@ function griglia(numeroInternoAlBox){
     numeroInterno.classList.add('numeroInterno');
     numeroInterno.append(numeroInternoAlBox);
 
-
-    element.append(numeroInterno)
     return element;
 }
