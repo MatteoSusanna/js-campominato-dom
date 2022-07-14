@@ -49,8 +49,6 @@ main{
     align-items: center;
 }
 
-
-
 footer{
     background-color: white;
     height: 60px;
@@ -61,7 +59,12 @@ footer .container-bot{
     margin-left: 70px;
 }
 
-
 .bomb{
     background-color: red;
+    color: white;
+}
+
+.normal{
+    background-color: blue;
+    color: white;
 }

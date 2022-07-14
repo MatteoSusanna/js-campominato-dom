@@ -6,6 +6,7 @@ document.getElementById('play').addEventListener('click',
         function(){
 
             containerDom.innerHTML = '';
+            
             let attiva = 0;
 
 
@@ -15,24 +16,27 @@ document.getElementById('play').addEventListener('click',
                     
                     let element = griglia(casual);
                     
-                    //evento click cambio colore red
+                    //evento click box griglia
                     element.addEventListener('click',
                          function(){
                             
-
+                            //se è divisibile per 6 è una bomba
                             if (casual % 6 == 0){
-                                this.style.backgroundColor = 'red';
-                                this.style.color = 'white';
-                                alert('Hai perso')
+                                this.classList.add('bomb')
+                                alert('HAI PERSO il tuo punteggio è di ' + attiva + ' punti')
+                                attiva-- 
                             }else {
-                                this.style.backgroundColor = 'blue';
-                                this.style.color = 'white';
-                            }
-                            
+                                if(this.classList.contains('normal')){
+                                    attiva--
+                                }
+                                this.classList.add('normal')
+                                 //punteggio
+                                attiva++
+                                hDom.innerHTML = `<h3>IL PUNTEGGIO E' ${attiva}</h3>`
+                                
+                            }               
 
-                            //punteggio
-                            attiva++
-                            hDom.innerHTML = `<h3>IL PUNTEGGIO E' ${attiva}</h3>`
+                           
     
                         }
                     );
@@ -56,17 +60,6 @@ function griglia (numeroInternoAlBox){
     let element = document.createElement('div');
     element.classList.add('box');
 
-/*
-    element.addEventListener('click',
-        function(){
-            if(numeroInternoAlBox % 6 == 0){
-                this.style.backgroundColor = 'red';
-                this.style.color = 'white';
-            }
-
-        }
-    )
- */ 
 
     //creazione boxnumero
     let numeroInterno = document.createElement('div');
