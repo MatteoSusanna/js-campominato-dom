@@ -7,18 +7,28 @@ document.getElementById('play').addEventListener('click',
 
             containerDom.innerHTML = '';
             let attiva = 0;
-            
+
 
                 for (let i = 1; i <= 100; i++){
 
-                    let element = griglia(i);
+                    let casual = numeroRandom( 1, 100);
+                    
+                    let element = griglia(casual);
                     
                     //evento click cambio colore red
                     element.addEventListener('click',
                          function(){
-                            this.style.backgroundColor = 'red';
-                            this.style.color = 'white';
-                            console.log(i);
+                            
+
+                            if (casual % 6 == 0){
+                                this.style.backgroundColor = 'red';
+                                this.style.color = 'white';
+                                alert('Hai perso')
+                            }else {
+                                this.style.backgroundColor = 'blue';
+                                this.style.color = 'white';
+                            }
+                            
 
                             //punteggio
                             attiva++
@@ -31,6 +41,13 @@ document.getElementById('play').addEventListener('click',
         }
 );
 
+//funzione numero radomico
+function numeroRandom (min, max){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+
 
 //funzione per creare la griglia
 
@@ -39,7 +56,24 @@ function griglia (numeroInternoAlBox){
     let element = document.createElement('div');
     element.classList.add('box');
 
+/*
+    element.addEventListener('click',
+        function(){
+            if(numeroInternoAlBox % 6 == 0){
+                this.style.backgroundColor = 'red';
+                this.style.color = 'white';
+            }
 
-    element.append(numeroInternoAlBox);
+        }
+    )
+ */ 
+
+    //creazione boxnumero
+    let numeroInterno = document.createElement('div');
+    numeroInterno.classList.add('numeroInterno');
+    numeroInterno.append(numeroInternoAlBox);
+
+
+    element.append(numeroInterno);
     return element;
 }
